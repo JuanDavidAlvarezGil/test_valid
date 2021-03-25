@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Failure from '../../default/failure/Failure';
-import Loading from '../../default/loading/Loading';
+import Failure from '../../views/default/failure/Failure';
+import Loading from '../../views/default/loading/Loading';
 import ServiceInterctor from '../../model/services/ServiceInteractor';
 import TrackDetailView from '../../views/trackDetailView/TrackDetailView';
 
 export default function TrackDetailController({route,navigation}) {
     const [loading, setLoading] = useState(false)
-    const [response, setResponse] = useState(null)
     const [detail, setDetail] = useState({})
     useEffect(() => {
         getData();
@@ -17,15 +16,11 @@ export default function TrackDetailController({route,navigation}) {
         setLoading(true)
         clearData();
         let result=await ServiceInterctor.getTrackDetail({name:trackName,artist:artisName});
-        setDetail(result.track)
-        setResponse(result)
-        console.log("Aqui el detail----------------------------------")
-        console.log(result.track)
+        setDetail(result)
         setLoading(false)
     }
     const clearData = () =>{
-        setResponse({})
         setDetail({})
     }
-    return loading?<Loading/>:response != null ?<TrackDetailView detail={detail}/>: <Failure/>
+    return loading?<Loading/>:detail.name!=undefined ?<TrackDetailView detail={detail}/>: <Failure/>
 }

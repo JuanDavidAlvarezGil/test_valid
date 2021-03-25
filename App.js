@@ -20,8 +20,8 @@ export default function App() {
         }
         } />
         <Stack.Screen name="Track" component={TracksControllers} />
-        <Stack.Screen name="TrackDetail" component={TrackDetailController} />
-        <Stack.Screen name="Artist" component={ArtistController} />
+        <Stack.Screen name="TrackDetail" component={TrackDetailController} options={{title:'Detalle de la canción'}} />
+        <Stack.Screen name="Artist" component={ArtistController} options={{title:'Detalle del artista'}}/>
         <Stack.Screen name="ArtistDetail" component={ArtistDetailController} />
       </Stack.Navigator>
     </NavigationContainer>

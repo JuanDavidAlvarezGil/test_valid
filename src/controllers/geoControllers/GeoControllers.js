@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Failure from '../../default/failure/Failure'
-import Loading from '../../default/loading/Loading'
+import Failure from '../../views/default/failure/Failure'
+import Loading from '../../views/default/loading/Loading'
 import ServiceInterctor from '../../model/services/ServiceInteractor'
 import GeoViews from '../../views/geoViews/GeoViews'
 
@@ -15,10 +15,10 @@ export default function GeoControllers({navigation}) {
     const getData =async () => { 
         setLoading(true)
         clearData()
-        let resultArts =await ServiceInterctor.getArtist({pages:pages});
-        setArtists(resultArts.topartists.artist)
-        let resultTracks = await ServiceInterctor.getTracks({pages:pages});
-        setTracks(resultTracks.tracks.track)
+        // let resultArts =await ServiceInterctor.getArtist({pages:pages});
+        // setArtists(resultArts.topartists.artist)
+        // let resultTracks = await ServiceInterctor.getTracks({pages:pages});
+        // setTracks(resultTracks.tracks.track)
         setLoading(false)
     }
     const clearData=()=>{

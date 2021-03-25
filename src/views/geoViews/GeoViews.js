@@ -10,14 +10,14 @@ export default function GeoViews({ artists, tracks, selectTrack, selectArtist,sh
                 <ScrollView showsVerticalScrollIndicator={false}>
 
                     <Text style={{marginVertical:16,fontSize:24,fontWeight:'bold'}}>Artistas</Text>
-                    <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false} >
                         {artists.map((artist) => {
                             return (
-                                <View style={{marginHorizontal:8}} key={artist.name}>
+                                <View style={{marginHorizontal:8}} key={artist.name} style={{flex:1,justifyContent:'center'}}>
                                     <TouchableOpacity onPress={() => { selectArtist({ name: artist.name }) }}>
                                         <Image source={{ uri: artist.image[2]['#text'] }} style={{ width: 100, height: 100, borderRadius: 200 }} />
                                     </TouchableOpacity>
-                                        <Text style={{ textAlign: 'center' }}>
+                                        <Text style={{ textAlign: 'center',width:"100%" }}>
                                             {artist.name}
                                         </Text>
                                 </View>
